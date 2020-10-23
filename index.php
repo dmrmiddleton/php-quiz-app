@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <?php
+    include 'inc/quiz.php';
+    var_dump($questions);
+    ?>
     <div class="container">
         <div id="quiz-box">
             <p class="breadcrumbs">Question # of #</p>
