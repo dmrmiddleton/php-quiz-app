@@ -28,21 +28,17 @@ shuffle($answers);
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if ($_POST['answer'] == $questions[$_POST['index']]['correctAnswer']) {
         $toast = "Well done! That's correct.";
+        // Increase correct answer count by one.
+        $_SESSION["total_correct"] += 1;
     } else {
         $toast = "Bummer! That was incorrect.";
     }
 }
 
-/*
-    Check if a session variable has ever been set/created to hold the indexes of questions already asked.
-    If it has NOT: 
-        1. Create a session variable to hold used indexes and initialize it to an empty array.
-        2. Set the show score variable to false.
-*/
-
-// Check if any questions have already been asked.
+// Check if any questions have already been asked. If not initiate session variables.
 if (!isset($_SESSION["used_indexes"])) {
     $_SESSION["used_indexes"] = [];
+    $_SESSION["total_correct"] = 0;
 }
 
 // Push the index of the last question to the used_indexes array,
@@ -69,5 +65,4 @@ array_push($_SESSION["used_indexes"], $index);
             firstIncorrectAnswer, and secondIncorrect answer from the variable in step e.
         h. Shuffle the array from step g.
 */
-
 

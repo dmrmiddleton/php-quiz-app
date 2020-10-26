@@ -10,7 +10,7 @@
 <body>
     <?php
     include 'inc/quiz.php';
-    var_dump($_SESSION);
+    var_dump($_SESSION["total_correct"]);
     ?>
     <div class="container">
         <div id="quiz-box">
@@ -19,7 +19,6 @@
             if ($toast) {
                 echo "<p>$toast</p>";
             }
-            var_dump($_SESSION["used_indexes"]);
             ?>
             <p class="breadcrumbs">Question <?php echo count($_SESSION["used_indexes"]); ?> of <?php echo $totalQuestions; ?></p>
             <p class="quiz">What is <?php echo $question['leftAdder']; ?> + <?php echo $question['rightAdder']; ?>?</p>
