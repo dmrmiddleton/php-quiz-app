@@ -20,6 +20,8 @@
                 echo "<p>$toast</p>";
             }
             ?>
+            <?php
+            if (!$show_score) { ?>
             <p class="breadcrumbs">Question <?php echo count($_SESSION["used_indexes"]); ?> of <?php echo $totalQuestions; ?></p>
             <p class="quiz">What is <?php echo $question['leftAdder']; ?> + <?php echo $question['rightAdder']; ?>?</p>
             <form action="index.php" method="post">
@@ -28,6 +30,13 @@
                 <input type="submit" class="btn" name="answer" value="<?php echo $answers[1]; ?>" />
                 <input type="submit" class="btn" name="answer" value="<?php echo $answers[2]; ?>" />
             </form>
+            <?php } ?>
+            <?php
+            if ($show_score) {
+                echo "
+                <p>You got ", $_SESSION["total_correct"], "of", $totalQuestions, "correct!";
+            }
+            ?>
         </div>
     </div>
 </body>
