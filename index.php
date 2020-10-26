@@ -19,8 +19,9 @@
             if ($toast) {
                 echo "<p>$toast</p>";
             }
+            var_dump($_SESSION["used_indexes"]);
             ?>
-            <p class="breadcrumbs">Question # of <?php echo $totalQuestions; ?></p>
+            <p class="breadcrumbs">Question <?php echo count($_SESSION["used_indexes"]); ?> of <?php echo $totalQuestions; ?></p>
             <p class="quiz">What is <?php echo $question['leftAdder']; ?> + <?php echo $question['rightAdder']; ?>?</p>
             <form action="index.php" method="post">
                 <input type="hidden" name="index" value="<?php echo $index; ?>" />

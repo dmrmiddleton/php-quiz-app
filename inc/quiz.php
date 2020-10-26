@@ -40,6 +40,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         2. Set the show score variable to false.
 */
 
+// Check if any questions have already been asked.
+if (!isset($_SESSION["used_indexes"])) {
+    $_SESSION["used_indexes"] = [];
+}
+
+// Push the index of the last question to the used_indexes array,
+array_push($_SESSION["used_indexes"], $index);
 
 /*
   If the number of used indexes in our session variable is equal to the total number of questions
