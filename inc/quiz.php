@@ -5,8 +5,10 @@
 include 'questions.php';
 
 // Make a variable to hold the total number of questions to ask
+$index = 2;
 
 // Make a variable to hold the toast message and set it to an empty string
+$question = $questions[$index];
 
 // Make a variable to determine if the score will be shown or not. Set it to false.
 

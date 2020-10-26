@@ -10,7 +10,7 @@
 <body>
     <?php
     include 'inc/quiz.php';
-    var_dump($questions);
+    var_dump($question);
     ?>
     <div class="container">
         <div id="quiz-box">
