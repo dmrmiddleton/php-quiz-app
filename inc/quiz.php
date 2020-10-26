@@ -8,6 +8,9 @@ include 'questions.php';
 // Variable to store the total number of questions.
 $totalQuestions = count($questions);
 
+// Variable to hold index of the question.
+$index = array_rand($questions);
+
 // Variable to hold toast message
 $toast = null;
 
@@ -42,9 +45,11 @@ if (count($_SESSION["used_indexes"]) == $totalQuestions) {
         $_SESSION["total_correct"] = 0;
         $toast = "";
     }
-    // Variable to hold index of the question. Question selected at random.
-    $index = array_rand($questions);
-    // Push the index of the last question to the used_indexes array,
+    // Question selected at random and checked if it has already been asked.
+    while (in_array($index, $_SESSION["used_indexes"])) {
+        $index = array_rand($questions);
+    }
+    // Push the index of the last question to the used_indexes array.
     array_push($_SESSION["used_indexes"], $index);
     // Get the array of the current question based on $index.
     $question = $questions[$index];

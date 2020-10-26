@@ -10,7 +10,6 @@
 <body>
     <?php
     include 'inc/quiz.php';
-    var_dump($_SESSION["total_correct"]);
     ?>
     <div class="container">
         <div id="quiz-box">
@@ -34,7 +33,7 @@
             <?php
             if ($show_score) {
                 echo "
-                <p>You got ", $_SESSION["total_correct"], "of", $totalQuestions, "correct!";
+                <p>You got ", $_SESSION["total_correct"], " of ", $totalQuestions, " correct!";
             }
             ?>
         </div>
