@@ -15,12 +15,13 @@
     ?>
     <div class="container">
         <div id="quiz-box">
+            <!-- Output toast message -->
             <?php 
             if ($toast) {
                 echo "<p>$toast</p>";
             }
             ?>
-            <p class="breadcrumbs">Question # of #</p>
+            <p class="breadcrumbs">Question # of <?php echo $totalQuestions; ?></p>
             <p class="quiz">What is <?php echo $question['leftAdder']; ?> + <?php echo $question['rightAdder']; ?>?</p>
             <form action="index.php" method="post">
                 <input type="hidden" name="index" value="<?php echo $index; ?>" />

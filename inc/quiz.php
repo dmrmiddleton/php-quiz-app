@@ -4,35 +4,25 @@
 // Include questions from the questions.php file
 include 'questions.php';
 
-// Make a variable to hold the total number of questions to ask
-$index = 2;
+// Variable to store the total number of questions.
+$totalQuestions = count($questions);
 
-// Make a variable to hold the toast message and set it to an empty string
-$question = $questions[$index];
+// Variable to hold toast message
+$toast = null;
 
 // Make a variable to determine if the score will be shown or not. Set it to false.
 
-// Make a variable to hold a random index. Assign null to it.
+// Variable to hold the index of the question to ask.
+$index = 2;
 
-// Make a variable to hold the current question. Assign null to it.
+// Get the array of the current question based on $index.
+$question = $questions[$index];
 
 // Assign possible answers to the selected question to an associative array and suffle the array.
 $answers = [$question['correctAnswer'], $question['firstIncorrectAnswer'], $question['secondIncorrectAnswer']];
 shuffle($answers);
 
 
-/*
-    If the server request was of type POST
-        Check if the user's answer was equal to the correct answer.
-        If it was correct:
-            1. Assign a congratulutory string to the toast variable
-            2. Ancrement the session variable that holds the total number correct by one.
-        Otherwise:
-            1. Assign a bummer message to the toast variable.
-*/
-
-// Create variable to hold toast message
-$toast = null;
 // Check if correct answer was chosen and set appropriate toast message
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if ($_POST['answer'] == $questions[$_POST['index']]['correctAnswer']) {
