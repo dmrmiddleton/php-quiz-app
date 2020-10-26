@@ -10,8 +10,7 @@
 <body>
     <?php
     include 'inc/quiz.php';
-    var_dump($_POST["answer"]);
-    var_dump($_POST["index"]);
+    var_dump($_SESSION);
     ?>
     <div class="container">
         <div id="quiz-box">

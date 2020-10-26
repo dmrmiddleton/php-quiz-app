@@ -1,5 +1,6 @@
 <?php
 // Start the session
+session_start();
 
 // Include questions from the questions.php file
 include 'questions.php';
