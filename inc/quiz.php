@@ -16,6 +16,10 @@ $question = $questions[$index];
 
 // Make a variable to hold the current question. Assign null to it.
 
+// Assign possible answers to the selected question to an associative array and suffle the array.
+$answers = [$question['correctAnswer'], $question['firstIncorrectAnswer'], $question['secondIncorrectAnswer']];
+shuffle($answers);
+
 
 /*
     If the server request was of type POST
@@ -26,6 +30,17 @@ $question = $questions[$index];
         Otherwise:
             1. Assign a bummer message to the toast variable.
 */
+
+// Create variable to hold toast message
+$toast = null;
+// Check if correct answer was chosen and set appropriate toast message
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    if ($_POST['answer'] == $questions[$_POST['index']]['correctAnswer']) {
+        $toast = "Well done! That's correct.";
+    } else {
+        $toast = "Bummer! That was incorrect.";
+    }
+}
 
 /*
     Check if a session variable has ever been set/created to hold the indexes of questions already asked.
@@ -58,5 +73,3 @@ $question = $questions[$index];
 */
 
 
-$answers = [$question['correctAnswer'], $question['firstIncorrectAnswer'], $question['secondIncorrectAnswer']];
-shuffle($answers);

@@ -10,15 +10,20 @@
 <body>
     <?php
     include 'inc/quiz.php';
-   //var_dump($question);
-    var_dump($answers);
+    var_dump($_POST["answer"]);
+    var_dump($_POST["index"]);
     ?>
     <div class="container">
         <div id="quiz-box">
+            <?php 
+            if ($toast) {
+                echo "<p>$toast</p>";
+            }
+            ?>
             <p class="breadcrumbs">Question # of #</p>
             <p class="quiz">What is <?php echo $question['leftAdder']; ?> + <?php echo $question['rightAdder']; ?>?</p>
             <form action="index.php" method="post">
-                <input type="hidden" name="id" value="<?php echo $index; ?>" />
+                <input type="hidden" name="index" value="<?php echo $index; ?>" />
                 <input type="submit" class="btn" name="answer" value="<?php echo $answers[0]; ?>" />
                 <input type="submit" class="btn" name="answer" value="<?php echo $answers[1]; ?>" />
                 <input type="submit" class="btn" name="answer" value="<?php echo $answers[2]; ?>" />
