@@ -57,4 +57,3 @@ if (count($_SESSION["used_indexes"]) == $totalQuestions) {
     $answers = [$question['correctAnswer'], $question['firstIncorrectAnswer'], $question['secondIncorrectAnswer']];
     shuffle($answers);
 }
-//session_destroy();
