@@ -12,8 +12,8 @@ $toast = null;
 
 // Make a variable to determine if the score will be shown or not. Set it to false.
 
-// Variable to hold the index of the question to ask.
-$index = 2;
+// Variable to hold index of the question. Question selected at random.
+$index = array_rand($questions);
 
 // Get the array of the current question based on $index.
 $question = $questions[$index];
